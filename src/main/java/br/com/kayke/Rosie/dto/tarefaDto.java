@@ -1,4 +1,4 @@
-package br.com.kayke.Rosie.Controller;
+package br.com.kayke.Rosie.dto;
 
 public record tarefaDto(String tarefa){
 

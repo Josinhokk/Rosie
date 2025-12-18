@@ -1,22 +1,37 @@
 package br.com.kayke.Rosie.Controller;
 
+import br.com.kayke.Rosie.Entidades.Tarefa;
 import br.com.kayke.Rosie.Service.TarefaService;
+import br.com.kayke.Rosie.dto.dadosTarefa;
+import br.com.kayke.Rosie.dto.tarefaDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(("tarefa"))
 public class tarefaController {
 
-    @Autowired
-    private TarefaService servico;
 
-    @PostMapping("criar")
+    //aqui tentando evitar o autowired usando construtor para a injeção
+    private final TarefaService servico;
+
+    public tarefaController(TarefaService service) {
+        this.servico = service;
+    }
+
+    @PostMapping
     public void criarTarefa(@RequestBody tarefaDto dto){
         servico.criarTarefa(dto);
     }
 
+    @GetMapping
+    public List<dadosTarefa> listarTarefa(){
+        return servico.listarTarefas();}
+
+    @PutMapping("{id}")
+    public void completarTarefa(@PathVariable Long id){
+        servico.completarTarefa(id);
+    }
 }

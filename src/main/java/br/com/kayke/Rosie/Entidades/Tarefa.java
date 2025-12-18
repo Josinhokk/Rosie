@@ -1,6 +1,6 @@
 package br.com.kayke.Rosie.Entidades;
 
-import br.com.kayke.Rosie.Controller.tarefaDto;
+import br.com.kayke.Rosie.dto.tarefaDto;
 import jakarta.persistence.*;
 import lombok.*;
 
