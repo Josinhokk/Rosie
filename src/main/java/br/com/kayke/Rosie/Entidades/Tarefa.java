@@ -22,7 +22,7 @@ public class Tarefa {
     private StatusTarefa status = StatusTarefa.INCOMPLETO;
 
     public Tarefa(tarefaDto dto){
-        this.tarefa = dto.tarefa();
+        this.tarefa = dto.nome();
         this.status = StatusTarefa.INCOMPLETO;
     }
 }

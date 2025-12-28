@@ -25,6 +25,7 @@ public class TarefaService {
 
     public List<dadosTarefa> listarTarefas() {
         return repo.findAll().stream().map(tarefa -> new dadosTarefa(
+                tarefa.getId(),
                 tarefa.getTarefa(),
                 tarefa.getStatus()
         )).toList();
@@ -49,10 +50,11 @@ public class TarefaService {
     }
 
     public void deletarTarefa(Long id) {
-        try{
-        repo.deleteById(id);}
-        catch(Exception e){
-            throw new TarefaException(e.getMessage());
-        }
+        repo.deleteById(id);
     }
+
+    public void deletarTodas(){
+        repo.deleteAll();
+    }
+
 }

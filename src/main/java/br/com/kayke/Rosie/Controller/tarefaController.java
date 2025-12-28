@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(("tarefa"))
+@RequestMapping(("tarefas"))
 public class tarefaController {
 
 
@@ -46,5 +46,8 @@ public class tarefaController {
     public void deletarTarefa(@PathVariable Long id){
         servico.deletarTarefa(id);
     }
+
+    @DeleteMapping("deletar")
+    public void deletarTodas(){servico.deletarTodas();}
 
 }

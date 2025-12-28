@@ -1,5 +1,5 @@
 package br.com.kayke.Rosie.dto;
 
-public record tarefaDto(String tarefa){
+public record tarefaDto(String nome){
 
 }
